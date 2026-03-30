@@ -1,0 +1,117 @@
+.roboto-<uniquifier> {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.montecarlo-regular {
+  font-family: "MonteCarlo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* rosa och grön till blommor, blå och gul som primary */
+
+:root {
+    --rosa: #F5D2D2; 
+    --gul: #FFF799;
+    --grön: #91D06C;
+    --blå: #4C8CE4;
+    --blå-rubrik: #406093;
+}
+
+/* 1. Containern håller allt på plats */
+.container {
+    position: relative;
+    max-width: 800px; /* Maxbredd för datorer */
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: white; 
+    overflow: hidden; /* Klipper av sido-girlanden snyggt längst ner */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* 2. Topp-bilden - anpassar sig efter skärmen */
+header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Låter den täcka bredden på små skärmar... */
+    max-width: 700px; /* ...men hindrar den från att bli enorm på dator */
+    
+    /* DINA NYA MÅTT (Bredd / Höjd) */
+    aspect-ratio: 1022 / 492; 
+    
+    background-image: url('/images/flowergarland-top.png');
+    background-size: 100% 100%; /* Fyller hela rutan perfekt */
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* 3. Sido-bilden - fästs i botten av topp-bilden */
+header::after {
+    content: "";
+    position: absolute;
+    /* Om det blir en liten glipa mellan bilderna kan du ändra top: 100% till t.ex. 99% eller 98% */
+    top: 100%; 
+    right: 0;
+    
+    /* NYA MATEMATIKEN: 402 / 1022 = 39.33% */
+    width: 39.33%; 
+    
+    height: 3000px; /* Vi gör den jättelång, 'overflow: hidden' i containern klipper bort överflödet */
+    
+    background-image: url('/images/flowergarland-side.png');
+    background-size: 100% auto; /* Bredden anpassar sig, höjden följer med */
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* 4. Innehållet */
+main {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 150px 50px 20px; /* Standard-padding för dator */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* 5. Anpassning för mobiler (mindre skärmar) */
+@media (max-width: 600px) {
+    main {
+        /* Ökade högermarginalen (40%) eftersom din nya sidobild är lite bredare */
+        padding: 0 38% 50px 20px; 
+    }
+    
+    h1 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+}
+
+body {
+    margin: 0 auto;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+}
+
+h1 {
+    font-family: "MonteCarlo", cursive;
+    font-size: 48px;
+    color: var(--blå-rubrik);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
