@@ -16,7 +16,8 @@
 /* rosa och grön till blommor, blå och gul som primary */
 
 :root {
-    --rosa: #F5D2D2; 
+    --rosa: #F5D2D2;
+    --rosa2: #FFE4EF;
     --gul: #FFF799;
     --grön: #91D06C;
     --blå: #4C8CE4;
@@ -99,7 +100,7 @@ main {
     flex-direction: row;
     border: #406093 1px solid;
     border-radius: 8px;
-    width: fit-content;
+    width: 70%;
     padding: 16px;
     gap: 8px;
 }
@@ -137,6 +138,24 @@ h1 {
     margin: 8px;
 }
 
+h3 {
+    font-weight: 400;
+    font-size: 28px;
+}
+
+fieldset {
+    border: solid 2px var(--blå-rubrik);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+legend {
+    align-self: center;
+}
+
 form {
     display: flex;
     justify-content: center;
@@ -172,12 +191,21 @@ button[type="submit"] {
     background-color: var(--rosa);
     border: var(--blå-rubrik) 1px solid;
     border-radius: 4px;
+    width: 100px;
+    font-size: 28px;
+    line-height: 32px;
+    font-family: "Montecarlo";
+    font-weight: 600;
+    color: var(--blå-rubrik);
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+    cursor: pointer;
 }
 
-.inforuta p {
+button[type="submit"]:hover {
+    background-color: var(--rosa);
+    
 }
 
-/* 5. Anpassning för mobiler (mindre skärmar) */
 @media (max-width: 800px) {
     main {
         /* Ökade högermarginalen (40%) eftersom din nya sidobild är lite bredare */
