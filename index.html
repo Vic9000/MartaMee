@@ -15,6 +15,8 @@
         <main>
             <h1>Välkomna till min student</h1>
 
+            <hr>
+
             <div class="inforuta">
                 <p>
                     3 juni 2026 <br> <br>
@@ -25,16 +27,19 @@
             </div>
             
 
-            <fieldset>
-                <form action="post">
+            <form action="https://formsubmit.co/magistervic@gmail.com" method="POST">
+                <div class="form-controls">
                     <label for="namn">Namn:</label>
-                    <input type="text" name="namn">
+                    <input type="text" name="namn" required>
                     <label for="number">Telefonnummer:</label>
-                    <input type="number" name="number">
+                    <input type="number" name="number" required>
+                    <label for="antal">Antal personer:</label>
+                    <input type="text" name="antal" required>
+                </div>
+                
 
-                    <button type="submit">Skicka</button>
-                </form>
-            </fieldset>
+                <button type="submit"> Skicka </button>
+            </form>
             
         </main>
     </div> <!-- Container slut -->

@@ -57,7 +57,7 @@ header::after {
     content: "";
     position: absolute;
     /* Om det blir en liten glipa mellan bilderna kan du ändra top: 100% till t.ex. 99% eller 98% */
-    top: 100%; 
+    top: 99.5%; 
     right: 0;
     
     /* NYA MATEMATIKEN: 402 / 1022 = 39.33% */
@@ -86,17 +86,9 @@ main {
     z-index: 1;
 }
 
-/* 5. Anpassning för mobiler (mindre skärmar) */
-@media (max-width: 600px) {
-    main {
-        /* Ökade högermarginalen (40%) eftersom din nya sidobild är lite bredare */
-        padding: 0 38% 50px 20px; 
-    }
-    
-    h1 {
-        font-size: 36px;
-        line-height: 44px;
-    }
+.inforuta {
+    border: #406093 1px solid;
+    border-radius: 8px;
 }
 
 body {
@@ -109,9 +101,68 @@ h1 {
     font-family: "MonteCarlo", cursive;
     font-size: 48px;
     color: var(--blå-rubrik);
+    line-height: 56px;
+    margin: 8px;
 }
 
 form {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    border-radius: 4px;
+    padding: 8px;
+    text-align: left;
+    justify-content: center;
 }
+
+.form-controls {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+form label {
+    align-self: center;
+    font-size: 16px;
+}
+
+form input {
+    color: var(--blå);
+    border: var(--blå) 1px solid;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+button[type="submit"] {
+    padding: 8px;
+    background-color: var(--rosa);
+    border: var(--blå-rubrik) 1px solid;
+    border-radius: 4px;
+}
+
+hr {
+    border-top: 1px solid var(--blå);
+}
+
+/* 5. Anpassning för mobiler (mindre skärmar) */
+@media (max-width: 800px) {
+    main {
+        /* Ökade högermarginalen (40%) eftersom din nya sidobild är lite bredare */
+        padding: 0 38% 50px 20px; 
+    }
+    
+    h1 {
+        font-size: 36px;
+        line-height: 44px;
+        margin: 0;
+    }
+}
+
+@media screen AND (max-width: 500px) {
+    main {
+        padding: 0 38% 50px 20px;
+    }
+}
+
