@@ -75,7 +75,7 @@ header::after {
 main {
     width: 100%;
     box-sizing: border-box;
-    padding: 150px 150px 50px 20px; /* Standard-padding för dator */
+    padding: 300px 150px 50px 20px; /* Standard-padding för dator */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -86,14 +86,46 @@ main {
     z-index: 1;
 }
 
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
 .inforuta {
+    display: flex;
+    flex-direction: row;
     border: #406093 1px solid;
     border-radius: 8px;
+    width: fit-content;
+    padding: 16px;
+    gap: 8px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inforuta p {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+}
+
+.inforuta img {
+    width: 50%;
+    align-self:flex-end;
 }
 
 body {
     margin: 0 auto;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 300;
     background-color: whitesmoke;
 }
 
@@ -142,8 +174,7 @@ button[type="submit"] {
     border-radius: 4px;
 }
 
-hr {
-    border-top: 1px solid var(--blå);
+.inforuta p {
 }
 
 /* 5. Anpassning för mobiler (mindre skärmar) */
