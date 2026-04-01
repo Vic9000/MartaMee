@@ -17,7 +17,6 @@
 
 :root {
     --rosa: #F5D2D2;
-    --rosa2: #FFE4EF;
     --gul: #FFF799;
     --grön: #91D06C;
     --blå: #4C8CE4;
@@ -30,10 +29,17 @@
     max-width: 800px; /* Maxbredd för datorer */
     min-height: 100vh;
     margin: 0 auto;
-    background-color: white; 
+    background-color: whitesmoke; 
     overflow: hidden; /* Klipper av sido-girlanden snyggt längst ner */
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
+
+/* Diagonal background
+background-color: #F5D2D2;
+opacity: 0.2;
+background: repeating-linear-gradient( 45deg, #91D06C, #91D06C 2px, #F5D2D2 2px, #F5D2D2 10px );
+
+*/
 
 /* 2. Topp-bilden - anpassar sig efter skärmen */
 header {
@@ -47,6 +53,7 @@ header {
     aspect-ratio: 1022 / 492; 
     
     background-image: url('/images/flowergarland-top.png');
+    opacity: 100%;
     background-size: 100% 100%; /* Fyller hela rutan perfekt */
     background-repeat: no-repeat;
     pointer-events: none;
@@ -76,12 +83,13 @@ header::after {
 main {
     width: 100%;
     box-sizing: border-box;
-    padding: 300px 150px 50px 20px; /* Standard-padding för dator */
+    padding: 300px 32% 50px 50px; /* Standard-padding för dator */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8px;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -97,30 +105,31 @@ main {
 
 .inforuta {
     display: flex;
-    flex-direction: row;
-    border: #406093 1px solid;
-    border-radius: 8px;
-    width: 70%;
-    padding: 16px;
-    gap: 8px;
-}
-
-.info-text {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: #406093 1px solid;
+    border-radius: 8px;
+    width: 80%;
+    padding: 8px;
+    gap: 8px;
 }
 
 .inforuta p {
-    font-size: 20px;
-    line-height: 24px;
-    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+    margin: 4px;
 }
 
-.inforuta img {
-    width: 50%;
-    align-self:flex-end;
+img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    border-radius: 8px;
+    border: var(--blå) 2px outset;
+
 }
 
 body {
@@ -144,6 +153,7 @@ h3 {
 }
 
 fieldset {
+    width: 80%;
     border: solid 2px var(--blå-rubrik);
     border-radius: 4px;
     display: flex;
@@ -154,6 +164,9 @@ fieldset {
 
 legend {
     align-self: center;
+    font-family: "Montecarlo", cursive;
+    font-size: 4rem;
+    color: var(--blå-rubrik);
 }
 
 form {
@@ -176,14 +189,15 @@ form {
 
 form label {
     align-self: center;
-    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 form input {
     color: var(--blå);
     border: var(--blå) 1px solid;
     border-radius: 4px;
-    padding: 12px;
+    padding: .5rem;
 }
 
 button[type="submit"] {
@@ -206,22 +220,67 @@ button[type="submit"]:hover {
     
 }
 
-@media (max-width: 800px) {
+@media screen AND (max-width: 600px) {
     main {
-        /* Ökade högermarginalen (40%) eftersom din nya sidobild är lite bredare */
-        padding: 0 38% 50px 20px; 
-    }
-    
-    h1 {
-        font-size: 36px;
-        line-height: 44px;
-        margin: 0;
+        width: 100%;
     }
 }
 
 @media screen AND (max-width: 500px) {
     main {
-        padding: 0 38% 50px 20px;
+        padding: 220px 20% 50px 50px;
+        max-width: 100%;
+        width: 100%;
     }
+
+    h1 {
+        width: 70%;
+        font-size: 3rem;
+    }
+
+    .inforuta {
+        width: 100%;
+    }
+
+    header {
+        position: absolute;
+        top: -20px;
+        right: -25%;
+        width: 125%; /* Låter den täcka bredden på små skärmar... */
+        max-width: 700px; /* ...men hindrar den från att bli enorm på dator */
+        
+        /* DINA NYA MÅTT (Bredd / Höjd) */
+        aspect-ratio: 1022 / 492; 
+        
+        background-image: url('/images/flowergarland-top.png');
+        opacity: 100%;
+        background-size: 100% 100%; /* Fyller hela rutan perfekt */
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    /* 3. Sido-bilden - fästs i botten av topp-bilden */
+    header::after {
+        content: "";
+        position: absolute;
+        /* Om det blir en liten glipa mellan bilderna kan du ändra top: 100% till t.ex. 99% eller 98% */
+        top: 99.5%; 
+        right: 0;
+        
+        /* NYA MATEMATIKEN: 402 / 1022 = 39.33% */
+        width: 39.33%; 
+        
+        height: 3000px; /* Vi gör den jättelång, 'overflow: hidden' i containern klipper bort överflödet */
+        
+        background-image: url('/images/flowergarland-side.png');
+        background-size: 100% auto; /* Bredden anpassar sig, höjden följer med */
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 400px) {
+    
 }
 
