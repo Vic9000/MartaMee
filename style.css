@@ -182,15 +182,23 @@ fieldset {
 
 legend {
     align-self: center;
-    font-family: "Montecarlo", cursive;
     color: var(--blå-rubrik);
 }
 
-legend h3 {
+h3 {
+    font-family: "Montecarlo", cursive;
     font-size: 2rem;
     font-weight: 500;
     padding: 0;
     margin: 0;
+}
+
+h4 {
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 2.1;
+    margin: 0;
+    color: var(--blå-rubrik);
 }
 
 form {
