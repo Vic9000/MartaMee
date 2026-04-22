@@ -127,9 +127,9 @@ main {
 
 img {
     object-fit: cover;
-    max-width: 70%;
     height: auto;
     width: auto;
+    max-width: 70%;
     border-radius: 8px;
     border: var(--rosa) 1px solid;
 
