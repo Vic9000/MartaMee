@@ -151,8 +151,19 @@ h1 {
 }
 
 h3 {
-    font-weight: 400;
-    font-size: 28px;
+    font-family: "Montecarlo", cursive;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+h4 {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+    margin: 1rem 0 0 0;
+    color: var(--blå-rubrik);
 }
 
 fieldset {
@@ -182,22 +193,6 @@ fieldset {
 
 legend {
     align-self: center;
-    color: var(--blå-rubrik);
-}
-
-h3 {
-    font-family: "Montecarlo", cursive;
-    font-size: 2rem;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
-}
-
-h4 {
-    font-weight: 300;
-    font-size: 2rem;
-    line-height: 2.1;
-    margin: 0;
     color: var(--blå-rubrik);
 }
 
