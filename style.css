@@ -127,7 +127,7 @@ main {
 
 img {
     object-fit: cover;
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
     width: auto;
     border-radius: 8px;
@@ -242,7 +242,7 @@ button[type="submit"] {
     font-size: 28px;
     line-height: 32px;
     font-family: "Montecarlo";
-    font-weight: 600;
+    font-weight: 400;
     color: var(--blå-rubrik);
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
     cursor: pointer;
