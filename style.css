@@ -287,6 +287,10 @@ button[type="submit"]:hover {
         width: 100%;
     }
 
+    img {
+        max-width: 100%;
+    }
+
     header {
         position: absolute;
         top: -20px;
